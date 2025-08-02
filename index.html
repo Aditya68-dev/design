@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at top left, #eeadde, #8adfb0, #c74cc7);
+      color: #110f0f;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    header h1 {
+      color: #00ffff;
+    }
+    nav a {
+      color: #84b975;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00ffff;
+    }
+    section {
+      padding: 4rem 2rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #00ffff;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #00cccc;
+    }
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #00ffff44;
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .contact-info a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Design Produk</h1>
+    <nav>
+      <a href="#about">Tentang</a>
+      <a href="#skills">Skill</a>
+      <a href="#projects">Proyek</a>
+      <a href="#testimonials">Testimoni</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>  
+  <section class="hero" data-aos="fade-up"
+    style="background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat; min-height: 100vh; color: white;">
+    <h2>Hi, Saya Nurlita</h2>
+    <p>Produk Designer yang suka bikin tampilan kece dan modern.</p>
+    <a href="#contact" class="btn">Hire Me</a>
+  </section>  <section id="about" data-aos="fade-right">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah pengembang antarmuka pengguna dengan pengalaman dalam Adobe Photoshop, Adobe Ilustrator, Coreldraw.
+         Fokus saya adalah membuat Design yang responsif, estetis, dan ramah pengguna. dengan ilmu yang saya dapat, 
+        saya membuat design menggukan aplikasi editor seperti Photoshop dan Coreldraw </p>
+  </section>  <section id="skills" data-aos="fade-left">
+    <h2>Skill</h2> 
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Framework: React, Tailwind</li>
+      <li>UI/UX Design & Animasi (AOS, GSAP)</li>
+      <li>Version Control: Git & GitHub</li>
+    </ul>
+  </section>  <section id="projects" data-aos="fade-up">
+    <h2>Proyek</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Proyek Satu</h3>
+        <p>Halaman arahan dengan UI dan animasi modern.</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyek Dua</h3>
+        <p>Site web portofolio dengan komposisi dan efek elegan.</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyek Tiga</h3>
+        <p>Prototype desain e-dagang dengan elemen interaktif.</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyek Empat</h3>
+        <p>Aplikasi to-do list dengan fitur penyimpanan lokal (localStorage).</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyek Lima</h3>
+        <p>Website edukasi interaktif untuk belajar HTML dan CSS.</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyek Enam</h3>
+        <p>Landing page promosi event dengan efek parallax scrolling.</p>
+      </div>
+    </div>
+  </section>  <section id="testimonials" data-aos="fade-right">
+    <h2>Testimoni</h2>
+    <p>"Kerja sama dengan Awan sangat memuaskan. Desainnya modern dan sesuai keinginan." – Klien A</p>
+    <p>"Responsif, cepat, dan hasilnya bagus banget!" – Klien B</p>
+  </section>  <section id="blog" data-aos="fade-left">
+    <h2>Blog</h2>
+
+    <p>Saya juga suka menulis tentang teknologi front-end, tren UI/UX, dan tutorial membuat website keren.</p>
+    <p>
+      Sebagai seorang desainer, saya tidak hanya fokus pada estetika, tetapi juga pada bagaimana desain dapat
+       menyelesaikan masalah dan meningkatkan pengalaman pengguna. Setiap proyek yang saya kerjakan selalu saya mulai dengan riset:
+       memahami kebutuhan pengguna, tren yang sedang berkembang, dan tujuan dari produk itu sendiri. Saya percaya bahwa desain bukan sekadar tampilan,
+        tapi juga bagaimana sesuatu bekerja dengan efisien dan menyenangkan.
+        </p>
+
+        <p>
+      Saya pribadi sangat menikmati proses eksplorasi visual dan pembuatan prototipe.
+      Tools seperti Adobe XD, dan bahkan sketsa manual di buku gambar menjadi sahabat saya dalam menuangkan ide. Saya juga senang mempelajari tren desain terbaru, seperti glassmorphism, neubrutalism, atau warna-warna bold yang mulai populer di tahun-tahun belakangan ini. Hal-hal tersebut membuat saya terus termotivasi untuk belajar dan berinovasi dalam karya-karya saya.
+
+      Melalui blog ini, saya ingin berbagi pandangan, pengalaman, dan juga tantangan sebagai seorang desainer. 
+        Mulai dari bagaimana membangun portofolio yang kuat, menjaga kreativitas di tengah deadline yang ketat,
+         hingga tips kolaborasi yang baik dengan developer. Semoga tulisan-tulisan saya bisa menginspirasi sesama 
+         kreator dan membantu pembaca untuk lebih memahami dunia desain yang begitu dinamis dan penuh potensi.
+    </p>
+  </section>  <section id="contact" data-aos="fade-up">
+    <h2>Kontak</h2>
+    <p>Hubungi saya melalui:</p>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:julvyaditya@gmail.com">nurlita@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/prnoiid_" target="_blank">@prnoiid_</a></p>
+      <p>WhatsApp: <a href="https://wa.me/6287894940282" target="_blank">+62 878-9494-0282</a></p>
+    </div>
+  </section>  <footer>
+    <p>&copy; 2025 Nurlita. ProdukDesign.</p>
+  </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
+    AOS.init({ duration: 1000 });
+  </script></body>
+</html>
