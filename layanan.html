@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Layanan - Desain Produk</title>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+      /* --- Basic reset & variables --- */
+      :root {
+        --blue: #007bff;
+        --blue-dark: #0062d6;
+        --muted: #6b7280;
+        --card-bg: #ffffff;
+        --page-bg: #f7fbff;
+        --radius: 12px;
+        --glass: rgba(255, 255, 255, 0.6);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: var(--page-bg);
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+      }
+
+      /* --- Navbar --- */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.85),
+          rgba(255, 255, 255, 0.75)
+        );
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.03);
+      }
+      .nav .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--blue);
+      }
+      .brand .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 6px 18px rgba(0, 123, 255, 0.18);
+      }
+      .nav .links {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .nav a {
+        color: #344054;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .nav a.primary {
+        background: var(--blue);
+        color: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.12);
+      }
+
+      /* --- Hero --- */
+      .hero {
+        max-width: 1100px;
+        margin: 32px auto;
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 36px;
+        align-items: center;
+      }
+      .hero-left h1 {
+        margin: 0 0 14px 0;
+        font-size: 36px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #061126;
+      }
+      .hero-left p {
+        color: var(--muted);
+        margin: 0 0 22px 0;
+        font-size: 16px;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .btn-primary {
+        background: var(--blue);
+        color: white;
+        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.12);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--blue);
+        border: 2px solid rgba(0, 123, 255, 0.12);
+      }
+
+      .hero-right {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.65),
+          rgba(255, 255, 255, 0.35)
+        );
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: 0 8px 30px rgba(3, 10, 34, 0.06);
+        text-align: center;
+      }
+      .hero-right img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+
+      /* --- Services grid --- */
+      .section {
+        max-width: 1100px;
+        margin: 28px auto;
+        padding: 28px 20px;
+      }
+      .section h2 {
+        font-size: 28px;
+        margin: 0 0 8px;
+      }
+      .section p.lead {
+        color: var(--muted);
+        margin: 0 0 20px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 10px 20px rgba(2, 6, 23, 0.04);
+        transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1),
+          box-shadow 0.35s;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 36px rgba(3, 10, 34, 0.08);
+      }
+      .card .icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .card h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #07103b;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        flex: 1;
+      }
+
+      /* --- CTA strip --- */
+      .cta-strip {
+        margin: 26px 0;
+        border-radius: 14px;
+        padding: 28px;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 123, 255, 0.08),
+          rgba(0, 123, 255, 0.02)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+      .cta-strip .left {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .cta-strip h3 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .cta-strip p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .cta-strip .right {
+        display: flex;
+        gap: 12px;
+      }
+
+      /* --- Contact form --- */
+      .contact {
+        max-width: 900px;
+        margin: 18px auto 80px;
+        padding: 28px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, #fff, #fcfdff);
+        box-shadow: 0 20px 40px rgba(2, 6, 23, 0.04);
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #e6e9ef;
+        font-size: 15px;
+        outline: none;
+        transition: box-shadow 0.18s, border-color 0.18s;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--blue);
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .submit-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 8px;
+      }
+      .hint {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 8px;
+      }
+
+      /* footer */
+      footer {
+        padding: 34px 20px 60px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* responsive */
+      @media (max-width: 1000px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .nav .links {
+          display: none;
+        }
+      }
+      @media (max-width: 600px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-left h1 {
+          font-size: 28px;
+        }
+        .nav .container {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="nav" role="navigation">
+      <div class="container">
+        <a href="index.html" class="brand" aria-label="Home">
+          <div class="logo">DP</div>
+          <div>
+            <div style="font-weight: 800">DesignProd</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Desain Produk • Modern & Elegan
+            </div>
+          </div>
+        </a>
+
+        <div class="links" aria-hidden="false">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="layanan.html">Layanan</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" aria-labelledby="hero-title">
+      <div class="hero-left" data-aos="fade-up">
+        <h1 id="hero-title">
+          Layanan Desain Produk — Dari Konsep hingga Produksi
+        </h1>
+        <p>
+          Solusi desain yang menggabungkan estetika, fungsi, dan pengalaman
+          pengguna. Pilih layanan kami sesuai kebutuhan: mulai dari riset &
+          konsep, 3D rendering, hingga prototyping.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#layanan" class="btn btn-primary">Get Started</a>
+          <a href="#contact" class="btn btn-ghost">Hubungi Kami</a>
+        </div>
+      </div>
+
+      <div class="hero-right" data-aos="fade-left">
+        <img
+          src="https://via.placeholder.com/400x260?text=Design+Mockup"
+          alt="mockup desain"
+        />
+      </div>
+    </header>
+
+    <!-- LAYANAN (target anchor) -->
+    <main>
+      <section id="layanan" class="section" aria-labelledby="layanan-title">
+        <div data-aos="fade-up">
+          <h2 id="layanan-title">Layanan Kami</h2>
+          <p class="lead">
+            Kami menawarkan rangkaian layanan lengkap untuk mewujudkan produk
+            Anda — dari ide awal sampai jadi prototipe siap produksi.
+          </p>
+        </div>
+
+        <div class="grid" style="margin-top: 18px">
+          <article class="card" data-aos="fade-up" data-aos-delay="80">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div class="icon">01</div>
+              <div>
+                <h3>Riset & Konsep</h3>
+                <p>
+                  Analisis pasar, user research, pembuatan moodboard dan konsep
+                  produk yang terarah.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="140">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div class="icon">02</div>
+              <div>
+                <h3>UI/UX & Visual Design</h3>
+                <p>
+                  Layout, interaksi, dan visual design supaya produk Anda punya
+                  pengalaman pengguna yang memukau.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div class="icon">03</div>
+              <div>
+                <h3>3D Modeling & Rendering</h3>
+                <p>
+                  Membuat model 3D realistis & rendering high-res untuk
+                  presentasi atau materi produksi.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="260">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div class="icon">04</div>
+              <div>
+                <h3>Prototyping</h3>
+                <p>
+                  Pembuatan prototype fungsional untuk uji ergonomi dan
+                  kelayakan produksi.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="320">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div class="icon">05</div>
+              <div>
+                <h3>Branding & Packaging</h3>
+                <p>
+                  Desain identitas visual dan kemasan yang mendukung positioning
+                  produk di pasaran.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="380">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div class="icon">06</div>
+              <div>
+                <h3>Konsultasi Produksi</h3>
+                <p>
+                  Panduan teknis untuk mempermudah transisi dari desain ke
+                  produksi massal.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- CTA strip -->
+        <div
+          class="cta-strip"
+          data-aos="zoom-in"
+          data-aos-delay="80"
+          style="margin-top: 24px"
+        >
+          <div class="left">
+            <div
+              style="
+                width: 52px;
+                height: 52px;
+                border-radius: 10px;
+                background: linear-gradient(
+                  135deg,
+                  var(--blue),
+                  var(--blue-dark)
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 800;
+              "
+            >
+              ✓
+            </div>
+            <div>
+              <h3 style="margin: 0">Siap Wujudkan Produkmu?</h3>
+              <p style="margin: 0" class="hint">
+                Konsultasi awal gratis — mulai dari diskusi kebutuhan sampai
+                estimasi biaya.
+              </p>
+            </div>
+          </div>
+
+          <div class="right">
+            <a href="#contact" class="btn btn-primary">Mulai Proyek</a>
+            <a href="portfolio.html" class="btn btn-ghost">Lihat Portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT FORM -->
+     
+        <section data-aos="fade-up">
+    <footer style="background:#0056a3; color:#fff; padding:40px 20px; margin-top:50px;">
+  <div style="max-width:1100px; margin:auto;">
+    
+    <!-- Menu atas -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:20px; text-align:left;">
+      <div>
+        <p><strong>Tentang kami</strong></p>
+      </div>
+      <div
+        style="display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:20px; text-align:left;" href="#">
+        <p><strong>Operasi kami</strong></p>
+      </div>
+      <div>
+        <p><strong>Karier</strong></p>
+      </div>
+      <div>
+        <p><strong>Keberlanjutan</strong></p>
+      </div>
+      <div>
+        <p><strong>Pusat Media</strong></p>
+      </div>
+      <div>
+        <p><strong>Pemasok</strong></p>
+      </div>
+    </div>
+
+    <hr style="border:0; border-top:1px solid rgba(255,255,255,0.3); margin:20px 0;">
+
+    <!-- Info link -->
+    <p style="text-align:center; font-size:14px; margin-bottom:15px;">
+      Prosedur Pengungkapan Pelanggaran | Kode Etik | Permintaan Informasi | Peringatan Penipuan dan Penipuan
+    </p>
+
+    <!-- Sosial media -->
+    <div style="text-align:center; margin:15px 0;">
+      <p><strong>HUBUNGI SAYA</strong></p>
+      <!-- Instagram -->
+<a href="https://instagram.com/prnoiid_" target="_blank" style="color:#E1306C; font-size:30px; margin:10px;">
+  <i class="fab fa-instagram"></i>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/+6287894940282" target="_blank" style="color:#25D366; font-size:30px; margin:10px;">
+  <i class="fab fa-whatsapp"></i>
+</a>
+    </div>
+
+    <!-- Kebijakan -->
+    <p style="text-align:center; font-size:14px; margin:10px 0;">
+      Penafian | Kebijakan Privasi | Portfolio
+    </p>
+
+    <!-- Copyright -->
+    <p style="text-align:center; font-size:13px; opacity:0.8;">
+      Hak Cipta © 2025 Portfolio. Seluruh hak cipta dilindungi undang-undang.
+    </p>
+  </div>
+</footer>
+</section>
+          <div
+            id="formMsg"
+            style="
+              display: none;
+              margin-top: 12px;
+              padding: 12px;
+              border-radius: 10px;
+              background: #ecfdf5;
+              color: #065f46;
+            "
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="yr"></span> DesignProd • Semua hak cipta dilindungi.
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // init AOS
+      AOS.init({
+        duration: 700,
+        easing: "ease-out-quart",
+        once: true,
+        offset: 100,
+      });
+
+      // footer year
+      document.getElementById("yr").textContent = new Date().getFullYear();
+
+      // fake submit handler (replace with backend endpoint or email service)
+      function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const name = form.querySelector("#name").value.trim();
+        const email = form.querySelector("#email").value.trim();
+        const service = form.querySelector("#service").value;
+        const message = form.querySelector("#message").value.trim();
+
+        // minimal validation
+        if (!name || !email || !service || !message) {
+          alert("Mohon lengkapi semua field yang diperlukan.");
+          return;
+        }
+
+        // show success message (demo)
+        const msgBox = document.getElementById("formMsg");
+        msgBox.style.display = "block";
+        msgBox.textContent =
+          "Terima kasih, pesanmu sudah terkirim. Kami akan segera menghubungi via email.";
+        form.reset();
+
+        // jika mau, kirim data ke server:
+        // fetch('/send', {method:'POST', body: new FormData(form)})
+        //   .then(r => r.json()).then(...)
+      }
+    </script>
+  </body>
+</html>

@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <section data-aos="fade-up">
-  <title>DesignProduk</title>
+  <title>Kontak — DesignProd</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap"
       rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
   <style>
     :root{
@@ -19,7 +20,7 @@
       --text:#111827;
       --muted:#6b7280;
       --bg:#5185c9;
-      --surface:#f3f4f6;
+      --surface:#4a73c4;
       --ring:rgba(30,107,214,.25);
       --radius:14px;
       --shadow:0 10px 25px rgba(0,0,0,.06);
@@ -35,7 +36,7 @@
     /* NAVBAR */
     .nav{
       background:var(--brand);
-      color:#e5eefc;
+      color:#1a2a44;
       position:sticky;top:0;z-index:50;
       box-shadow:0 2px 8px rgba(0,0,0,.08)
     }
@@ -43,7 +44,7 @@
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
     .badge{
-      width:32px;height:32px;border-radius:9px;background:#e9f1ff;color:var(--brand);
+      width:32px;height:32px;border-radius:9px;background:#183363;color:var(--brand);
       display:inline-grid;place-items:center;font-weight:700
     }
     .brand small{opacity:.9}
@@ -118,23 +119,44 @@
       .hero{padding:28px 0}
       .mock{order:-1}
     }
+
+    .contact {
+      display: flex;
+      justify-content: center; /* ini bikin isi ke tengah horizontal */
+      padding: 50px 20px;
+      background: #f8f9fa; /* biar beda warna sama background */
+   }
+
+.contact-info {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 600px; /* biar ga terlalu lebar */
+  width: 100%;
+  text-align: left; /* teksnya tetap rata kiri */
+}
+
+
+
   </style>
 </head>
 <body>
   <!-- NAV -->
-  <header class="nav">
+  <header data-aos="fade-up" class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#">
         <span class="badge">DP</span>
         <span>
           <strong>DesignProd</strong><br>
-          <small>Desain Produk • </small>
+          <small>Desain Produk • Modern &amp; Elegan</small>
         </span>
       </a>
       <nav aria-label="Utama">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="fitur.html">Fitur</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
           <li><a href="contact.html">Kontak</a></li>
         </ul>
       </nav>
@@ -145,87 +167,39 @@
   <section data-aos="fade-up" class="hero">
     <div class="container grid">
       <div>
-        <h1 class="title">Ciptakan Produk dengan design yang menginsipirasi</h1>
-        <p class="lead">
-          Ciptakan Produk dengan designyang menginsipirasi
+        <h1 data-aos="fade-up" class="title">Kontak Kami — Siap Membantu Kapan Saja</h1>
+        <p data-aos="fade-up" class="lead">
+          Punya pertanyaan soal jasa atau ingin diskusi proyek? Tim kami responsif
+          dan siap mengarahkan dari kebutuhan awal hingga eksekusi.
         </p>
         <div class="actions">
-          <a class="btn" href="layanan.html">Get Started</a>
-          <a class="btn outline" href="tel:+6281234567890">Hubungi via Telepon</a>
+          <a class=""></a>
+          <a data-aos="zoom-in" class="btn outline" href="tel:+6287894940282">Hubungi via Telepon</a>
         </div>
       </div>
-      <div data-aos="fade-up"  class="mock" aria-label="mockup kontak">
-        <img alt="mockup kontak" src="https://img.freepik.com/free-vector/graphic-design-addict-geometric-lettering_23-2148475703.jpg?semt=ais_hybrid&w=740&q=80" />
-       </div>
-
-        
-    </div>
-     
-   </main>
-  </section>  
-
-
-  <section data-aos="fade-up">
-    <footer style="background:#3c7cb4; color:#fff; padding:40px 20px; margin-top:50px;">
-  <div style="max-width:1100px; margin:auto;">
-    
-    <!-- Menu atas -->
-    <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:20px; text-align:left;">
-      <div>
-        <p><strong>Tentang kami</strong></p>
-      </div>
-      <div
-        style="display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:20px; text-align:left;" href="#">
-        <p><strong>Operasi kami</strong></p>
-      </div>
-      <div>
-        <p><strong>Karier</strong></p>
-      </div>
-      <div>
-        <p><strong>Keberlanjutan</strong></p>
-      </div>
-      <div>
-        <p><strong>Pusat Media</strong></p>
-      </div>
-      <div>
-        <p><strong>Pemasok</strong></p>
+      <div data-aos="zoom-in" class="mock" aria-label="mockup kontak">
+        <img alt="mockup kontak" src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1200&auto=format&fit=crop" />
       </div>
     </div>
+  </section>
+     <section data-aos="zoom-in">
+     <section class="contact">
+                 <div class="contact-info">
+                  <h2>Info Kontak</h2>
+                   <p>Anda bisa menghubungi kami melalui kanal berikut:</p>
+                     <a href="https://instagram.com/prnoiid_" target="_blank" style="color:#690f0f; font-size:30px; margin:10px;">
+                       <i class="fab fa-instagram"></i>
+                       <a href="https://wa.me/+6287894940282" target="_blank" style="color:#2d7548; font-size:30px; margin:10px;">
+                       <i class="fab fa-whatsapp"></i>
+                       </a>
+                     <h3>Alamat  </h3>
+                   <p>Jl. Bekasi Timur V RT/RW 003/009</p>
+                  <h3>Jam Operasional</h3>
+              <p>Senin–Jumat (09:00–18:00 WIB)</p>
+            </div>
+   </section>
 
-    <hr style="border:0; border-top:1px solid rgba(255,255,255,0.3); margin:20px 0;">
-
-    <!-- Info link -->
-    <p style="text-align:center; font-size:14px; margin-bottom:15px;">
-      Prosedur Pengungkapan Pelanggaran | Kode Etik | Permintaan Informasi | Peringatan Penipuan dan Penipuan
-    </p>
-
-    <!-- Sosial media -->
-    <div style="text-align:center; margin:15px 0;">
-      <p><strong>HUBUNGI SAYA</strong></p>
-      <!-- Instagram -->
-<a href="https://instagram.com/prnoiid_" target="_blank" style="color:#E1306C; font-size:30px; margin:10px;">
-  <i class="fab fa-instagram"></i>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/+6287894940282" target="_blank" style="color:#25D366; font-size:30px; margin:10px;">
-  <i class="fab fa-whatsapp"></i>
-</a>
-    </div>
-
-    <!-- Kebijakan -->
-    <p style="text-align:center; font-size:14px; margin:10px 0;">
-      Penafian | Kebijakan Privasi | Portfolio
-    </p>
-
-    <!-- Copyright -->
-    <p style="text-align:center; font-size:13px; opacity:0.8;">
-      Hak Cipta © 2025 Portfolio. Seluruh hak cipta dilindungi undang-undang.
-    </p>
-  </div>
-</footer>
-</section>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
       // init AOS
@@ -266,6 +240,7 @@
         //   .then(r => r.json()).then(...)
       }
     </script>
-  </body>
-</html>
 
+  <div class="footspace"></div>
+</body>
+</html>
